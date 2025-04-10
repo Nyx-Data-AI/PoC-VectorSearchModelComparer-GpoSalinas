@@ -172,5 +172,8 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+############# CUSTOM ############# 
 .DS_Store
 streamlit_app/.DS_Store
+.vscode/
