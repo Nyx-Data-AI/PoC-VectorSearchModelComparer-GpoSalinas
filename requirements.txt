@@ -1,0 +1,7 @@
+boto3>=1.28.0
+loguru>=0.7.0
+langchain>=0.1.0
+langchain_community>=0.0.10
+faiss-cpu>=1.7.4
+ipywidgets>=8.0.0
+jupyterlab>=3.5.0
