@@ -1,0 +1,223 @@
+<mxfile host="65bd71144e">
+    <diagram id="codeviz-diagram" name="System Diagram">
+        <mxGraphModel dx="978" dy="726" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="Infrastructure" value="" style="html=1;whiteSpace=wrap;container=1;fillColor=#dae8fc;strokeColor=#6c8ebf;dashed=1;fillOpacity=20;strokeWidth=2;containerType=none;recursiveResize=0;movable=1;resizable=1;autosize=0;dropTarget=0" parent="1" vertex="1">
+                    <mxGeometry x="246.5" y="412" width="380" height="220" as="geometry"/>
+                </mxCell>
+                <mxCell id="fileSystem" value="File System" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5" parent="Infrastructure" vertex="1">
+                    <mxGeometry x="40" y="120" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="bedrockAPI" value="AWS Bedrock API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5" parent="Infrastructure" vertex="1">
+                    <mxGeometry x="180" y="120" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="Infrastructure_label" value="Infrastructure" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;labelBackgroundColor=white;spacing=5" parent="1" vertex="1">
+                    <mxGeometry x="254.5" y="420" width="304" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="subGraph3" value="" style="html=1;whiteSpace=wrap;container=1;fillColor=#dae8fc;strokeColor=#6c8ebf;dashed=1;fillOpacity=20;strokeWidth=2;containerType=none;recursiveResize=0;movable=1;resizable=1;autosize=0;dropTarget=0" parent="1" vertex="1">
+                    <mxGeometry x="392" y="802" width="380" height="220" as="geometry"/>
+                </mxCell>
+                <mxCell id="claude3Haiku" value="Claude-3-Haiku" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5" parent="subGraph3" vertex="1">
+                    <mxGeometry x="40" y="120" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="claude35Haiku" value="Claude-3.5-Haiku" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5" parent="subGraph3" vertex="1">
+                    <mxGeometry x="180" y="120" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="subGraph3_label" value="Model Layer" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;labelBackgroundColor=white;spacing=5" parent="1" vertex="1">
+                    <mxGeometry x="400" y="810" width="304" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="subGraph2" value="" style="html=1;whiteSpace=wrap;container=1;fillColor=#dae8fc;strokeColor=#6c8ebf;dashed=1;fillOpacity=20;strokeWidth=2;containerType=none;recursiveResize=0;movable=1;resizable=1;autosize=0;dropTarget=0" parent="1" vertex="1">
+                    <mxGeometry x="322" y="1192" width="392" height="340" as="geometry"/>
+                </mxCell>
+                <mxCell id="promptTemplate" value="Prompt Template" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5" parent="subGraph2" vertex="1">
+                    <mxGeometry x="178" y="49" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="similaritySearch" value="Similarity Search" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5" parent="subGraph2" vertex="1">
+                    <mxGeometry x="18" y="60" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="modelInvocation" value="Model Invocation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5" parent="subGraph2" vertex="1">
+                    <mxGeometry x="76" y="240" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="subGraph2_label" value="Query Processing" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;labelBackgroundColor=white;spacing=5" parent="1" vertex="1">
+                    <mxGeometry x="210" y="1168" width="316" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="subGraph1" value="" style="html=1;whiteSpace=wrap;container=1;fillColor=#dae8fc;strokeColor=#6c8ebf;dashed=1;fillOpacity=20;strokeWidth=2;containerType=none;recursiveResize=0;movable=1;resizable=1;autosize=0;dropTarget=0" parent="1" vertex="1">
+                    <mxGeometry x="22" y="702" width="380" height="420" as="geometry"/>
+                </mxCell>
+                <mxCell id="textLoader" value="Text Loader" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5" parent="subGraph1" vertex="1">
+                    <mxGeometry x="180" y="120" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="textSplitter" value="Text Splitter" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5" parent="subGraph1" vertex="1">
+                    <mxGeometry x="180" y="220" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="vectorStore" value="FAISS Vector Store" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5" parent="subGraph1" vertex="1">
+                    <mxGeometry x="60" y="320" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="embeddings" value="Bedrock Embeddings" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5" parent="subGraph1" vertex="1">
+                    <mxGeometry x="40" y="220" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="subGraph1_label" value="Document Processing" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;labelBackgroundColor=white;spacing=5" parent="1" vertex="1">
+                    <mxGeometry x="30" y="710" width="304" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="Interface" value="" style="html=1;whiteSpace=wrap;container=1;fillColor=#dae8fc;strokeColor=#6c8ebf;dashed=1;fillOpacity=20;strokeWidth=2;containerType=none;recursiveResize=0;movable=1;resizable=1;autosize=0;dropTarget=0" parent="1" vertex="1">
+                    <mxGeometry x="246.5" y="22" width="240" height="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="fileUpload" value="File Upload Widget" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5" parent="Interface" vertex="1">
+                    <mxGeometry x="40" y="120" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="uploadHandler" value="Upload Handler" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5" parent="Interface" vertex="1">
+                    <mxGeometry x="40" y="220" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="Interface_label" value="Interface" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;labelBackgroundColor=white;spacing=5" parent="1" vertex="1">
+                    <mxGeometry x="254.5" y="30" width="164" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge-L_fileUpload_uploadHandler_0" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#808080;strokeWidth=2;jumpStyle=arc;jumpSize=10;spacing=15;labelBackgroundColor=white;labelBorderColor=none" parent="1" source="fileUpload" target="uploadHandler" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge-L_fileUpload_uploadHandler_0_label" value="sends files" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="edge-L_fileUpload_uploadHandler_0" vertex="1" connectable="0">
+                    <mxGeometry x="-0.2" y="10" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge-L_uploadHandler_fileSystem_1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#808080;strokeWidth=2;jumpStyle=arc;jumpSize=10;spacing=15;labelBackgroundColor=white;labelBorderColor=none" parent="1" source="uploadHandler" target="fileSystem" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge-L_uploadHandler_fileSystem_1_label" value="writes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="edge-L_uploadHandler_fileSystem_1" vertex="1" connectable="0">
+                    <mxGeometry x="-0.2" y="10" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge-L_fileSystem_textLoader_2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#808080;strokeWidth=2;jumpStyle=arc;jumpSize=10;spacing=15;labelBackgroundColor=white;labelBorderColor=none" parent="1" source="fileSystem" target="textLoader" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge-L_fileSystem_textLoader_2_label" value="loads" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="edge-L_fileSystem_textLoader_2" vertex="1" connectable="0">
+                    <mxGeometry x="-0.2" y="10" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge-L_textLoader_textSplitter_3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#808080;strokeWidth=2;jumpStyle=arc;jumpSize=10;spacing=15;labelBackgroundColor=white;labelBorderColor=none" parent="1" source="textLoader" target="textSplitter" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge-L_textLoader_textSplitter_3_label" value="splits" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="edge-L_textLoader_textSplitter_3" vertex="1" connectable="0">
+                    <mxGeometry x="-0.2" y="10" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge-L_textSplitter_vectorStore_4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#808080;strokeWidth=2;jumpStyle=arc;jumpSize=10;spacing=15;labelBackgroundColor=white;labelBorderColor=none" parent="1" source="textSplitter" target="vectorStore" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge-L_textSplitter_vectorStore_4_label" value="creates chunks" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="edge-L_textSplitter_vectorStore_4" vertex="1" connectable="0">
+                    <mxGeometry x="-0.2" y="10" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge-L_embeddings_vectorStore_5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#808080;strokeWidth=2;jumpStyle=arc;jumpSize=10;spacing=15;labelBackgroundColor=white;labelBorderColor=none" parent="1" source="embeddings" target="vectorStore" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge-L_embeddings_vectorStore_5_label" value="embeds documents" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="edge-L_embeddings_vectorStore_5" vertex="1" connectable="0">
+                    <mxGeometry x="-0.2" y="10" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge-L_promptTemplate_modelInvocation_6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#808080;strokeWidth=2;jumpStyle=arc;jumpSize=10;spacing=15;labelBackgroundColor=white;labelBorderColor=none" parent="1" source="promptTemplate" target="modelInvocation" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge-L_promptTemplate_modelInvocation_6_label" value="formats" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="edge-L_promptTemplate_modelInvocation_6" vertex="1" connectable="0">
+                    <mxGeometry x="-0.2" y="10" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge-L_similaritySearch_modelInvocation_7" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#808080;strokeWidth=2;jumpStyle=arc;jumpSize=10;spacing=15;labelBackgroundColor=white;labelBorderColor=none" parent="1" source="similaritySearch" target="modelInvocation" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge-L_similaritySearch_modelInvocation_7_label" value="retrieves context" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="edge-L_similaritySearch_modelInvocation_7" vertex="1" connectable="0">
+                    <mxGeometry x="-0.2" y="10" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge-L_vectorStore_similaritySearch_8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#808080;strokeWidth=2;jumpStyle=arc;jumpSize=10;spacing=15;labelBackgroundColor=white;labelBorderColor=none" parent="1" source="vectorStore" target="similaritySearch" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge-L_vectorStore_similaritySearch_8_label" value="searches" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="edge-L_vectorStore_similaritySearch_8" vertex="1" connectable="0">
+                    <mxGeometry x="-0.2" y="10" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge-L_modelInvocation_bedrockAPI_9" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#808080;strokeWidth=2;jumpStyle=arc;jumpSize=10;spacing=15;labelBackgroundColor=white;labelBorderColor=none;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="modelInvocation" target="bedrockAPI" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="458" y="1510"/>
+                            <mxPoint x="820" y="1510"/>
+                            <mxPoint x="820" y="490"/>
+                            <mxPoint x="486" y="490"/>
+                        </Array>
+                        <mxPoint x="550" y="1462.04" as="sourcePoint"/>
+                        <mxPoint x="578.5" y="562.04" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge-L_modelInvocation_bedrockAPI_9_label" value="invokes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="edge-L_modelInvocation_bedrockAPI_9" vertex="1" connectable="0">
+                    <mxGeometry x="-0.2" y="10" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge-L_bedrockAPI_claude3Haiku_10" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#808080;strokeWidth=2;jumpStyle=arc;jumpSize=10;spacing=15;labelBackgroundColor=white;labelBorderColor=none" parent="1" source="bedrockAPI" target="claude3Haiku" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="487" y="760"/>
+                            <mxPoint x="487" y="760"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge-L_bedrockAPI_claude3Haiku_10_label" value="routes to" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="edge-L_bedrockAPI_claude3Haiku_10" vertex="1" connectable="0">
+                    <mxGeometry x="-0.2" y="10" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge-L_bedrockAPI_claude35Haiku_11" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#808080;strokeWidth=2;jumpStyle=arc;jumpSize=10;spacing=15;labelBackgroundColor=white;labelBorderColor=none;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="bedrockAPI" target="claude35Haiku" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="632" y="562"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge-L_bedrockAPI_claude35Haiku_11_label" value="routes to" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="edge-L_bedrockAPI_claude35Haiku_11" vertex="1" connectable="0">
+                    <mxGeometry x="-0.2" y="10" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge-L_claude3Haiku_modelInvocation_12" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#808080;strokeWidth=2;jumpStyle=arc;jumpSize=10;spacing=15;labelBackgroundColor=white;labelBorderColor=none;entryX=0.762;entryY=-0.014;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="claude3Haiku" target="modelInvocation" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="492" y="1360"/>
+                            <mxPoint x="490" y="1360"/>
+                            <mxPoint x="490" y="1431"/>
+                        </Array>
+                        <mxPoint x="460" y="1430" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge-L_claude3Haiku_modelInvocation_12_label" value="returns response" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="edge-L_claude3Haiku_modelInvocation_12" vertex="1" connectable="0">
+                    <mxGeometry x="-0.2" y="10" relative="1" as="geometry">
+                        <mxPoint x="-10" y="-66" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge-L_claude35Haiku_modelInvocation_13" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#808080;strokeWidth=2;jumpStyle=arc;jumpSize=10;spacing=15;labelBackgroundColor=white;labelBorderColor=none;entryX=1;entryY=0.46;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="modelInvocation" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="646" y="1460"/>
+                            <mxPoint x="518" y="1460"/>
+                        </Array>
+                        <mxPoint x="646" y="982" as="sourcePoint"/>
+                        <mxPoint x="460" y="1500" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge-L_claude35Haiku_modelInvocation_13_label" value="returns response" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="edge-L_claude35Haiku_modelInvocation_13" vertex="1" connectable="0">
+                    <mxGeometry x="-0.2" y="10" relative="1" as="geometry">
+                        <mxPoint x="-6" y="-154" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
