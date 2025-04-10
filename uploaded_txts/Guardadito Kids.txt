@@ -1,0 +1,62 @@
+# GUARDADITO KIDS
+
+## Definición
+{#guardadito-kids/definicion}
+Es una **cuenta de depósito bancario** diseñada para **menores de edad**, con el objetivo de que puedan guardar su dinero y fomentar el hábito del ahorro de una manera fácil y divertida.
+
+## Requisitos de Apertura
+{#guardadito-kids/requisitos-apertura}
+*   **Titular (Menor):**
+    *   Ser persona física (nacional o extranjera con residencia en territorio nacional).
+    *   Edad: Desde 1 día de nacido hasta 17 años y 11 meses.
+    *   Presentar Acta de Nacimiento del menor. Si es extranjero, presentar acta de nacimiento extranjera.
+*   **Representante Legal (Padre, Madre o Tutor):**
+    *   Presentar identificación oficial vigente (IFE/INE o pasaporte).
+*   **Documentación Adicional:**
+    *   Presentar comprobante de domicilio con antigüedad no mayor a 3 meses (recibo de agua, luz, predial, gas o teléfono).
+*   **Monto de Apertura:**
+    *   Monto mínimo de apertura de **$1.00 peso**.
+
+## Beneficios
+{#guardadito-kids/beneficios}
+*   El dinero del menor siempre está disponible ([Disposición por representante legal en Características](#guardadito-kids/caracteristicas)).
+*   **Sin [comisiones](#guardadito-kids/comisiones) por manejo de cuenta ni saldos mínimos** requeridos.
+*   Posibilidad de **personalizar la tarjeta** de débito asociada con el nombre del menor y stickers ([Costo por personalización en Comisiones](#guardadito-kids/comisiones)).
+*   Límite máximo para **depósitos mensuales en efectivo** de **$15,000.00 pesos**.
+*   Permite realizar **depósitos y retiros de efectivo**, así como **consultas de saldos y movimientos** en **Telecomm**.
+*   Permite realizar **depósitos de efectivo** en **Chedraui, Waldo´s, Soriana y ESAN** ([Comisiones por depósito en corresponsales](#guardadito-kids/comisiones)).
+
+## Características
+{#guardadito-kids/caracteristicas}
+*   **Sin saldo promedio mínimo mensual** requerido.
+*   **Modalidad de Contratación:** Exclusivamente en **sucursal**.
+*   **Cobertura:** Nacional.
+*   **Personas Autorizadas:** Se pueden designar hasta dos personas autorizadas adicionales para realizar disposiciones a la cuenta a través de ventanilla o mediante tarjetas de débito adicionales ([Costo por emisión de plástico en Comisiones](#guardadito-kids/comisiones)).
+*   **Disposición de Fondos:** Las disposiciones de la cuenta (retiros) solo pueden ser efectuadas por el **representante legal del menor** (padre, madre o tutor registrado en la cuenta, ver [Requisitos](#guardadito-kids/requisitos-apertura)).
+
+## Comisiones
+{#guardadito-kids/comisiones}
+**Todas las comisiones** que se indican a continuación son **más IVA** (16%) y están sujetas a cambios.
+
+| Comisión                                                  | Monto     | Notas / Frecuencia                                                                         |
+| :-------------------------------------------------------- | :-------- | :----------------------------------------------------------------------------------------- |
+| Aclaraciones improcedentes de la cuenta (solicitud cliente) | $50.00    | Por evento                                                                                 |
+| Personalización de plástico ([Ver Beneficios](#guardadito-kids/beneficios)) | $99.14    | Por evento                                                                                 |
+| Emisión de estado de cuenta (adicional/histórico)         | $20.00    | Por evento                                                                                 |
+| Reposición de tarjeta por robo o extravío                 | $100.00   | Por evento                                                                                 |
+| Emisión del plástico titular                              | $51.73    | Por evento (Al contratar o primera reposición por desgaste)                               |
+| Depósito de efectivo en Soriana                           | $7.76     | Por evento (Comisión cobrada por el corresponsal, [ver Beneficios](#guardadito-kids/beneficios)) |
+| Depósito de efectivo en ESAN                              | $8.62     | Por evento (Comisión cobrada por el corresponsal, [ver Beneficios](#guardadito-kids/beneficios)) |
+| Retiro de efectivo de cajero en tiendas de autoservicio    | $12.00    | Por evento [No especifica si aplica solo a tiendas o también a otros cajeros externos]       |
+
+*Para una lista completa y actualizada, consulta el folleto informativo oficial del producto y la sección de tarifas en [www.bancoazteca.com.mx](https://www.bancoazteca.com.mx).*
+
+## Cambio de Cuenta por Mayoría de Edad
+{#guardadito-kids/cambio-cuenta-mayoria-edad}
+Una vez que el titular de la cuenta cumple la mayoría de edad (18 años), es importante que acuda a una sucursal para realizar el siguiente proceso:
+
+*   **Actualización de Biométricos:** Se requiere para la migración del producto a una cuenta de Nivel 4 (N4).
+*   **Asistencia Requerida:** Debe acudir el **titular** (que ya es mayor de edad) y el **tutor** (representante legal registrado). Ambos deben presentar su identificación oficial vigente (INE/IFE).
+*   **Elección de Producto:** El titular podrá elegir el producto de captación (cuenta de depósito) al que desea migrar su saldo y relación contractual.
+
+**Nota Importante:** Si no existen datos actualizados del tutor o falta información en el expediente histórico, se solicitará la identificación oficial tanto del tutor como del titular, y adicionalmente, las actas de nacimiento de ambos (tutor y titular).
