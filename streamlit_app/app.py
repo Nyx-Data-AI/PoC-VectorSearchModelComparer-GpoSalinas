@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
 """
 # 📘 Bedrock Multi-Model RAG App (Streamlit Version)
 Esta aplicación permite:
@@ -11,7 +8,6 @@ Esta aplicación permite:
 - Medir tiempo de respuesta para cada modelo
 """
 
-import os
 import time
 import asyncio
 import streamlit as st
@@ -26,12 +22,10 @@ from loguru import logger
 import pandas as pd
 from pathlib import Path
 
-# Configuración de loguru
-logger.remove()  # Remover el handler por defecto
+logger.remove()
 logger.add("bedrock_rag_app.log", rotation="10 MB", level="INFO")
 logger.add(lambda msg: st.sidebar.error(msg) if "ERROR" in msg else None, level="ERROR")
 
-# Configuración de la página de Streamlit
 st.set_page_config(
     page_title="Bedrock Multi-Model RAG App",
     page_icon="📘",
@@ -39,40 +33,32 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# Título principal
 st.title("📘 Bedrock Multi-Model RAG App")
 st.markdown("""
 Esta aplicación permite comparar respuestas de múltiples modelos de Amazon Bedrock 
 cuando se les hace la misma pregunta sobre documentos que hayas subido.
 """)
 
-# Lista de modelos disponibles
 DEFAULT_MODELS = [
     "us.anthropic.claude-3-haiku-20240307-v1:0",
-    "us.anthropic.claude-3-5-haiku-20241022-v1:0",
-    # "us.anthropic.claude-3-5-sonnet-20241022-v2:0",
-    # "us.anthropic.claude-3-7-sonnet-20250219-v1:0"
+    "us.anthropic.claude-3-5-haiku-20241022-v1:0"
 ]
 
-# Sidebar para configuración
 with st.sidebar:
     st.header("Configuración")
     
-    # Región para AWS
     aws_region = st.selectbox(
         "Región de AWS",
         options=["us-east-1", "us-east-2", "us-west-1", "us-west-2", "eu-west-1"],
         index=0
     )
     
-    # Selección de modelos
     st.subheader("Modelos a utilizar")
     selected_models = []
     for model in DEFAULT_MODELS:
         if st.checkbox(model, value=True, key=f"model_{model}"):
             selected_models.append(model)
     
-    # Parámetros avanzados
     st.subheader("Parámetros avanzados")
     max_tokens = st.slider("Máximo de tokens", min_value=100, max_value=1000, value=300, step=50)
     temperature = st.slider("Temperatura", min_value=0.0, max_value=1.0, value=0.2, step=0.1)
@@ -82,7 +68,6 @@ with st.sidebar:
     chunk_overlap = st.slider("Solapamiento de chunks", min_value=0, max_value=200, value=100, step=20)
     k_docs = st.slider("Número de documentos relevantes (k)", min_value=1, max_value=10, value=7, step=1)
 
-# Estado de la aplicación
 if 'vectorstore' not in st.session_state:
     st.session_state.vectorstore = None
 if 'documents' not in st.session_state:
@@ -93,9 +78,7 @@ if 'client' not in st.session_state:
     st.session_state.client = None
 
 
-# Función para verificar acceso a Bedrock
 def verify_bedrock_access(model_ids=None):
-    """Verifica el acceso a Amazon Bedrock y los modelos configurados."""
     if model_ids is None:
         model_ids = selected_models
         
@@ -103,19 +86,14 @@ def verify_bedrock_access(model_ids=None):
         client = boto3.client('bedrock-runtime', region_name=aws_region)
         st.session_state.client = client
         
-        # Verificar credenciales y conexión básica
         try:
             client.list_foundation_models()
         except AttributeError:
-            # Esta operación puede no estar disponible en todas las versiones
-            # Vamos a intentar otra operación básica
             pass
         
-        # Verificar acceso a cada modelo configurado
         valid_models = []
         invalid_models = []
         
-        # Mostrar progreso
         progress_bar = st.progress(0)
         status_text = st.empty()
         
@@ -125,14 +103,9 @@ def verify_bedrock_access(model_ids=None):
             progress_bar.progress(progress_value)
             
             try:
-                # Simplemente verificamos que podemos invocar una operación
-                # En lugar de get_foundation_model, que puede no estar disponible,
-                # usamos otra operación más garantizada
                 inference_config = {'maxTokens': 10, 'temperature': 0.5, 'topP': 0.9}
                 messages = [{'role': 'user', 'content': [{'text': 'test'}]}]
                 
-                # Hacemos una solicitud muy pequeña para verificar permisos
-                # Con un timeout bajo para no esperar mucho
                 client.converse(
                     modelId=model_id,
                     messages=messages,
@@ -152,7 +125,6 @@ def verify_bedrock_access(model_ids=None):
             except Exception as e:
                 invalid_models.append((model_id, f"Error inesperado: {str(e)}"))
                 
-        # Limpiar elementos temporales
         progress_bar.empty()
         status_text.empty()
         
@@ -202,7 +174,6 @@ def verify_bedrock_access(model_ids=None):
             "error": f"Error inesperado: {str(e)}"
         }
 
-# Función para inicializar el cliente de Bedrock
 def init_bedrock_client():
     try:
         client = boto3.client('bedrock-runtime', region_name=aws_region)
@@ -213,9 +184,7 @@ def init_bedrock_client():
         st.error(f"Error al inicializar el cliente de Amazon Bedrock: {str(e)}")
         return False
 
-# Función para cargar y dividir documentos de texto
 def load_and_split_txts(txt_paths, chunk_size=500, chunk_overlap=100):
-    """Carga y divide documentos de texto en chunks."""
     from langchain.document_loaders import TextLoader
     from langchain.text_splitter import RecursiveCharacterTextSplitter
     
@@ -230,7 +199,6 @@ def load_and_split_txts(txt_paths, chunk_size=500, chunk_overlap=100):
                 docs = loader.load()
                 chunks = splitter.split_documents(docs)
                 all_docs.extend(chunks)
-                # Actualizar progreso
                 progress = (i + 1) / len(txt_paths)
                 progress_bar.progress(progress)
             except Exception as e:
@@ -239,18 +207,14 @@ def load_and_split_txts(txt_paths, chunk_size=500, chunk_overlap=100):
     
     return all_docs
 
-# Función para inicializar embeddings y vectorstore
 def setup_embeddings_and_vectorstore(documents):
-    """Inicializa el modelo de embeddings y crea el vectorstore."""
     from langchain.vectorstores import FAISS
     from langchain.embeddings import BedrockEmbeddings 
     
     try:
         with st.spinner("Configurando modelo de embeddings..."):
-            # Intentamos crear el cliente de embeddings
             embeddings = BedrockEmbeddings(client=st.session_state.client)
             
-            # Verificamos que funcione correctamente haciendo una prueba simple
             test_result = embeddings.embed_query("Texto de prueba para verificar embeddings")
             if not test_result or not isinstance(test_result, list) or len(test_result) < 10:
                 raise ValueError("La respuesta de embeddings no tiene el formato esperado")
@@ -285,28 +249,12 @@ def setup_embeddings_and_vectorstore(documents):
         
         return None, False
 
-# Función para invocar el modelo de Bedrock
 async def invoke_converse(model_id, messages, inference_config):
-    """Invoca al modelo de Bedrock con manejo detallado de errores.
-    
-    Args:
-        model_id: El ID del modelo de Bedrock
-        messages: Lista de mensajes para la conversación
-        inference_config: Configuración de inferencia
-        
-    Returns:
-        Un diccionario con la respuesta del modelo, con estructura
-        esperada {output: {message: {content: [{text: "..."}]}}}
-    
-    Raises:
-        RuntimeError: Si hay problemas con el cliente, permisos o modelo.
-    """
     if st.session_state.client is None:
         logger.error("Client is None, Bedrock client no inicializado")
         raise RuntimeError("Cliente de Bedrock no inicializado correctamente.")
         
     try:
-        # Llamar al API de Bedrock
         logger.info(f"Invocando modelo {model_id}")
         response = st.session_state.client.converse(
             modelId=model_id,
@@ -314,12 +262,10 @@ async def invoke_converse(model_id, messages, inference_config):
             inferenceConfig=inference_config
         )
         
-        # Verificar que la respuesta tenga la estructura esperada
         if not isinstance(response, dict):
             logger.error(f"Respuesta inesperada de tipo {type(response)} para modelo {model_id}")
             raise RuntimeError(f"Respuesta inesperada del modelo {model_id}")
             
-        # Verificar la estructura de la respuesta
         if 'output' not in response:
             logger.error(f"Respuesta sin campo 'output' del modelo {model_id}: {response}")
             raise RuntimeError(f"Respuesta del modelo {model_id} no tiene el formato esperado")
@@ -328,7 +274,6 @@ async def invoke_converse(model_id, messages, inference_config):
             logger.error(f"Respuesta sin campo 'message' del modelo {model_id}: {response}")
             raise RuntimeError(f"Respuesta del modelo {model_id} no tiene el formato esperado")
             
-        # Todo en orden, devolver la respuesta
         return response
         
     except ClientError as e:
@@ -348,19 +293,14 @@ async def invoke_converse(model_id, messages, inference_config):
             logger.error(f"Cuota de servicio excedida para modelo {model_id}: {error_msg}")
             raise RuntimeError(f"Cuota de servicio excedida para el modelo {model_id}.")
         else:
-            # Reenvía el error original con información adicional
             logger.error(f"Error al invocar modelo {model_id}: {error_code} - {error_msg}")
             raise RuntimeError(f"Error al invocar modelo {model_id}: {error_msg}")
     except Exception as e:
-        # Capturar cualquier otro error inesperado
         logger.error(f"Error inesperado al invocar modelo {model_id}: {str(e)}")
         raise RuntimeError(f"Error inesperado al invocar modelo {model_id}: {str(e)}")
 
-# Función para ejecutar una consulta en un modelo específico
 async def run_chain(model_id, query, context, word_limit):
-    """Ejecuta una consulta en un modelo específico con manejo de errores mejorado."""
     try:
-        # Crear el prompt
         prompt = f"""
         <instrucciones_agente>
           <proposito>
@@ -407,10 +347,8 @@ async def run_chain(model_id, query, context, word_limit):
 
         start = time.time()
 
-        # Asegurarnos de esperar la coroutine y manejar posibles errores en la estructura de respuesta
         response = await invoke_converse(model_id, messages, inference_config)
 
-        # Añadir comprobaciones para evitar errores si la estructura es inesperada
         if not response or 'output' not in response:
             logger.error(f"Respuesta inválida o nula del modelo {model_id}")
             raise ValueError(f"Respuesta inválida del modelo {model_id}")
@@ -422,12 +360,10 @@ async def run_chain(model_id, query, context, word_limit):
             
         result = output_message['content'][0]['text']
 
-        # Obtener el número de tokens de salida
         output_tokens = response.get('usage', {}).get('outputTokens', 'N/A')
 
-        # Calcular el número aproximado de palabras
         if isinstance(output_tokens, int):
-            words_estimate = output_tokens / 2  # Relación tokens-palabras para español
+            words_estimate = output_tokens / 2 
         else:
             words_estimate = 'N/A'
 
@@ -499,12 +435,9 @@ async def run_chain(model_id, query, context, word_limit):
             "error_code": "Unknown"
         }
 
-# Función para ejecutar la consulta en todos los modelos
 async def run_all_models(query, docs, word_limit=50):
-    """Ejecuta la consulta en todos los modelos configurados."""
     context = "\n\n".join([d.page_content for d in docs])
     
-    # Primero verificamos el acceso a Bedrock
     if st.session_state.client is None:
         logger.error("No se puede ejecutar consulta: cliente Bedrock no inicializado")
         return [{
@@ -517,7 +450,6 @@ async def run_all_models(query, docs, word_limit=50):
             "error_code": "NoClient"
         }]
     
-    # Filtramos cualquier modelo que esté vacío o mal formateado
     valid_models = [mid for mid in selected_models if mid and isinstance(mid, str)]
     if not valid_models:
         logger.error("No hay modelos válidos configurados")
@@ -531,7 +463,6 @@ async def run_all_models(query, docs, word_limit=50):
             "error_code": "NoModels"
         }]
     
-    # Ejecutamos las consultas en todos los modelos válidos
     try:
         logger.info(f"Ejecutando consulta en {len(valid_models)} modelos")
         tasks = []
@@ -539,15 +470,12 @@ async def run_all_models(query, docs, word_limit=50):
             task = run_chain(mid, query, context, word_limit)
             tasks.append(task)
         
-        # Ejecutar todas las tareas y esperar a que terminen
         results = await asyncio.gather(*tasks, return_exceptions=True)
         
-        # Procesar los resultados para manejar excepciones
         processed_results = []
         for i, result in enumerate(results):
             mid = valid_models[i]
             if isinstance(result, Exception):
-                # Si el resultado es una excepción, crear una respuesta de error
                 logger.error(f"Error al procesar modelo {mid}: {str(result)}")
                 processed_results.append({
                     "model": mid,
@@ -559,7 +487,6 @@ async def run_all_models(query, docs, word_limit=50):
                     "error_code": "ExecutionError"
                 })
             else:
-                # Si no es una excepción, añadir el resultado normal
                 processed_results.append(result)
         
         return processed_results
@@ -575,10 +502,7 @@ async def run_all_models(query, docs, word_limit=50):
             "error_code": "ParallelExecutionError"
         }]
 
-# Función para mostrar los resultados de la comparación
-def display_model_results(results):
-    """Muestra los resultados de los modelos en formato de tabla y detalle."""
-    # Crear un DataFrame para comparación
+def display_model_results(results, query=""):
     comparison_data = []
     for r in results:
         status = r.get("status", "unknown")
@@ -586,28 +510,41 @@ def display_model_results(results):
         
         if status == "success":
             comparison_data.append({
+                "Pregunta": query,
                 "Modelo": model_name,
                 "Tiempo (s)": r["time"],
                 "Tokens": r.get("tokens", "N/A"),
                 "Palabras Est.": r.get("words_estimate", "N/A"),
-                "Estado": "✅ OK"
+                "Estado": "✅ OK",
+                "Respuesta": r["response"]
             })
         else:
             error_code = r.get("error_code", "Unknown")
             comparison_data.append({
+                "Pregunta": query,
                 "Modelo": model_name,
                 "Tiempo (s)": "N/A",
                 "Tokens": "N/A",
                 "Palabras Est.": "N/A",
-                "Estado": f"❌ Error: {error_code}"
+                "Estado": f"❌ Error: {error_code}",
+                "Respuesta": r["response"]
             })
     
-    # Mostrar tabla de comparación
     st.subheader("📊 Comparación de modelos")
     comparison_df = pd.DataFrame(comparison_data)
     st.dataframe(comparison_df)
     
-    # Mostrar las respuestas detalladas de cada modelo
+    st.session_state.last_comparison_data = comparison_data
+    
+    if st.download_button(
+        label="📥 Exportar resultados a CSV",
+        data=pd.DataFrame(comparison_data).to_csv(index=False).encode('utf-8'),
+        file_name="comparacion_modelos.csv",
+        mime="text/csv",
+        help="Descarga los resultados de la comparación en formato CSV"
+    ):
+        st.success("✅ Archivo CSV descargado exitosamente")
+    
     st.subheader("🤖 Respuestas por modelo")
     for r in results:
         with st.expander(f"🧠 {r['model']}", expanded=True):
@@ -623,7 +560,6 @@ def display_model_results(results):
             else:
                 st.error(r["response"])
 
-# Cargar archivos
 st.subheader("1️⃣ Cargar archivos de texto")
 uploaded_files = st.file_uploader(
     "Arrastra o haz clic para seleccionar archivos de texto",
@@ -631,13 +567,10 @@ uploaded_files = st.file_uploader(
     accept_multiple_files=True
 )
 
-# Crear directorio para archivos si no existe
 upload_dir = Path("uploaded_txts")
 upload_dir.mkdir(exist_ok=True)
 
-# Procesar archivos subidos
 if uploaded_files and not st.session_state.has_uploaded_files:
-    # Guardar archivos subidos
     saved_files = []
     for file in uploaded_files:
         file_path = upload_dir / file.name
@@ -647,7 +580,6 @@ if uploaded_files and not st.session_state.has_uploaded_files:
     
     st.success(f"✅ {len(saved_files)} archivos guardados exitosamente")
     
-    # Cargar y dividir los documentos
     try:
         documents = load_and_split_txts(saved_files, chunk_size=chunk_size, chunk_overlap=chunk_overlap)
         st.session_state.documents = documents
@@ -657,25 +589,19 @@ if uploaded_files and not st.session_state.has_uploaded_files:
         logger.error(f"Error al procesar documentos: {str(e)}")
         st.error(f"Error al procesar documentos: {str(e)}")
 
-# Inicialización de Bedrock y vectorstore
 if st.session_state.has_uploaded_files and st.session_state.documents and st.session_state.vectorstore is None:
-    # Inicializar cliente Bedrock
     if init_bedrock_client():
-        # Verificar acceso a Bedrock
         access_status = verify_bedrock_access()
         
         if access_status["success"]:
-            # Configurar embeddings y vectorstore
             vectorstore, success = setup_embeddings_and_vectorstore(st.session_state.documents)
             if success:
                 st.session_state.vectorstore = vectorstore
         else:
             st.error(f"❌ Error de acceso a Bedrock: {access_status.get('error', 'Error desconocido')}")
 
-# Sección de consultas
 st.subheader("2️⃣ Hacer preguntas a los documentos")
 
-# Verificar si tenemos todo listo para las consultas
 is_ready = (st.session_state.has_uploaded_files and 
             st.session_state.documents and 
             st.session_state.vectorstore is not None and 
@@ -684,10 +610,8 @@ is_ready = (st.session_state.has_uploaded_files and
 if not is_ready:
     st.warning("⚠️ Primero debe cargar archivos y esperar a que se configuren los modelos de embeddings y el índice vectorial.")
 else:
-    # Campo para la consulta
     query = st.text_input("Escribe tu pregunta aquí:", placeholder="cuanto cuesta personalizar el plástico de guardadito kids?")
     
-    # Botón para ejecutar la consulta
     if st.button("📝 Realizar consulta", type="primary"):
         if not query:
             st.warning("⚠️ Por favor ingresa una pregunta")
@@ -696,28 +620,23 @@ else:
         else:
             with st.spinner("Buscando documentos relevantes..."):
                 try:
-                    # Buscar documentos relevantes
                     relevant_docs = st.session_state.vectorstore.similarity_search(query, k=k_docs)
                     if not relevant_docs:
                         st.warning("⚠️ No se encontraron documentos relevantes para esta consulta")
                     
-                    # Mostrar fragmentos relevantes en un expander
                     with st.expander("📄 Ver fragmentos relevantes", expanded=False):
                         for i, doc in enumerate(relevant_docs):
                             st.markdown(f"**Fragmento {i+1}:**")
                             st.text(doc.page_content[:300] + "..." if len(doc.page_content) > 300 else doc.page_content)
                             st.markdown("---")
                     
-                    # Ejecutar la consulta en todos los modelos
                     with st.spinner("Consultando modelos de Bedrock..."):
                         results = asyncio.run(run_all_models(query, relevant_docs, word_limit))
-                        # Mostrar resultados
-                        display_model_results(results)
+                        display_model_results(results, query=query)
                         
                 except Exception as e:
                     logger.error(f"Error al ejecutar la consulta: {str(e)}")
                     st.error(f"❌ Error al ejecutar la consulta: {str(e)}")
 
-# Footer
 st.markdown("---")
 st.markdown("📘 **Bedrock Multi-Model RAG App** - Powered by Amazon Bedrock, LangChain, and Streamlit")
