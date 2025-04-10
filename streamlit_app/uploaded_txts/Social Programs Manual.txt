@@ -1,0 +1,354 @@
+# Manual Programas Sociales
+## Inducción a operación
+
+## Definición de Programas Sociales
+{#programas-sociales/definicion}
+Son iniciativas del Gobierno Federal enfocadas en mejorar las condiciones de vida de diferentes comunidades, con mayor vulnerabilidad.
+Actualmente se identifican más de 16 Programas prioritarios a nivel federal; de los cuales Banco Azteca opera 10. (Ver [Programas Operados por Banco Azteca](#programas-sociales/programas-operados)).
+
+## Programas Operados por Banco Azteca
+{#programas-sociales/programas-operados}
+A continuación, se detallan los programas sociales cuyos apoyos se dispersan a través de Banco Azteca:
+
+| Nombre del Programa                             | Perfil                                                | Monto por dispersión | Frecuencia             | Medio de cobro                                       |
+| :---------------------------------------------- | :---------------------------------------------------- | :------------------- | :--------------------- | :--------------------------------------------------- |
+| Beca Benito Juarez                              | Estudiantes de Educación Media Superior               | $1,750               | Bimestral              | [App Bienestar Azteca](#programas-sociales/app-bienestar) / [ODP](#programas-sociales/ordenes-pago) |
+| Adultos mayores                                 | Adultos de 68 años o más (65 en caso de indígenas)    | $4,800               | Bimestral              | [Tarjeta](#programas-sociales/tarjeta-bienestar)     |
+| Personas con Discapacidad                       | Personas con alguna discapacidad de por vida          | $2,800               | Bimestral              | [Tarjeta](#programas-sociales/tarjeta-bienestar)     |
+| Niñas y Niños hijos de madres Trabajadoras      | Madres solteras con hijos de hasta 6 años             | $1,600               | Bimestral              | [Tarjeta](#programas-sociales/tarjeta-bienestar)     |
+| La Escuela es Nuestra                           | Escuelas de bajos recursos                            | $210,000 promedio    | Única vez              | Carta upgrade (vinculada a [Tarjeta](#programas-sociales/tarjeta-bienestar) N4) |
+| Programa de Rec. Nacional de Escuelas           | Reconstrucción de escuelas                            | $1.2 mdp             | Única vez              | Carta upgrade (vinculada a [Tarjeta](#programas-sociales/tarjeta-bienestar) N4) |
+| Crédito a la palabra                            | Gente dueña de algún micro negocio familiar           | $25,000              | Única vez (contingencia) | App Banco Azteca / Carta upgrade                     |
+| Producción para el Bienestar                    | Productores de bajos recursos                         | $4,720 promedio    | Única vez              | [ODP](#programas-sociales/ordenes-pago)              |
+| Mejoramiento Urbano y Reconstrucción nacional | Familias afectadas por los sismos de 2017 y 2018    | De $35 a $90K        | Única vez              | [Tarjeta](#programas-sociales/tarjeta-bienestar)     |
+| Precios de garantía                             | Productores de granos básicos                         | $63,000 promedio     | Única vez              | [ODP](#programas-sociales/ordenes-pago)              |
+
+## Calendario y Montos de Pago Estimados
+{#programas-sociales/calendario-montos}
+Este año esperamos 11 dispersiones durante lo que resta del año, distribuidas de la siguiente manera para los programas con pagos bimestrales:
+
+| Programa                    | Monto Bimestral | Jul    | Sep    | Nov    |
+| :-------------------------- | :-------------- | :----- | :----- | :----- |
+| Adultos Mayores             | $4,800 bim      | $4,800 | $4,800 | $4,800 |
+| Personas c/ Discapacidad    | $2,800 bim      | $2,800 | $2,800 | $2,800 |
+| NYN de Madres Trabajadoras | $1,600 bim      | $1,600 | $1,600 | $1,600 |
+| Becas EMS                   | $1,750 bim      | $1,750 |        | $1,750 |
+
+**IMPORTANTE**
+Las fechas son estimadas, debido a que Gobierno es quien confirma cuando se realizará el depósito.
+
+## Tipos de Cuenta Asociadas (N2 y N4)
+{#programas-sociales/tipos-cuenta}
+Los apoyos se depositan en cuentas bancarias específicas.
+
+*   **Cuenta N2** {#programas-sociales/cuenta-n2}
+    *   **Características:** Es una cuenta básica, sin expediente histórico y con límite de transaccionalidad bajo.
+    *   **Documentos para Apertura:**
+        *   Nombre completo de titular
+        *   Domicilio
+        *   Número(s) de teléfono
+        *   Correo electrónico
+
+*   **Cuenta N4** {#programas-sociales/cuenta-n4}
+    *   **Características:** Es una cuenta con expediente histórico y límite transaccional más elevado.
+    *   **Documentos para Apertura:**
+        *   Identificación oficial vigente
+        *   Comprobante de domicilio no mayor a 3 meses de antigüedad
+        *   Captura de Biométricos en Sucursal
+
+**NOTA:** {#programas-sociales/nota-limite-udi}
+El límite transaccional de las cuentas **[nivel 2](#programas-sociales/cuenta-n2)** aperturada por el cliente tiene un limite de **3,000 UDIs** mensuales en depósitos. Si la apertura se realiza de forma central y es con finalidad de recibir recursos provenientes de un subsidio del Gobierno, el límite en depósitos mensuales será de **6,000 UDIS**.
+
+*   **¿Qué es la UDI y cuánto vale?** {#programas-sociales/definicion-udi}
+    Las Unidades de Inversión (UDIS), son unidades de valor que se basan en el incremento de los precios (la inflación) y son utilizadas para solventar las obligaciones de créditos hipotecarios o cualquier acto mercantil. En marzo 2023 se tiene un valor de $7.78. Recuerda el cambio de la UDI es diario.
+
+## Métodos de Pago
+{#programas-sociales/metodos-pago}
+Diseñamos modelos de operación flexibles, que facilitan el pago de los apoyos:
+
+*   **[Orden de pago](#programas-sociales/ordenes-pago)**
+    *   1. Carta con [QR/barras](#programas-sociales/ordenes-pago/identificacion) + [NIP](#programas-sociales/ordenes-pago/requisitos-cobro).
+    *   2. Para cobro en sucursal (QR) o en comercios de la red extendida (barras).
+    *   3. Pueden ser cobradas a través de [Bienestar Azteca](#programas-sociales/app-bienestar) con abono a cuenta.
+
+*   **[App Bienestar Azteca](#programas-sociales/app-bienestar)**
+    *   1. Plataforma Bienestar Azteca.
+    *   2. Previo registro en padrón con la Coordinación Nacional de Becas para el Bienestar Benito Juárez CNBBBJ.
+
+*   **[Tarjeta](#programas-sociales/tarjeta-bienestar)**
+    *   1. Apertura central de [cuentas N2](#programas-sociales/cuenta-n2) + tarjeta.
+    *   2. Apertura de cuenta central y carta instrucción de upgrade para entrega de [tarjeta N4](#programas-sociales/cuenta-n4) + Huella.
+
+## Órdenes de Pago (ODP / Carta QR)
+{#programas-sociales/ordenes-pago}
+
+### Identificación (Carta QR)
+{#programas-sociales/ordenes-pago/identificacion}
+*   **¿Cómo identifico una orden de pago? (Carta QR)**
+    *   **Nombre del Beneficiario**
+    *   **Vigencia de pago**
+    *   **Código de Barras:** Herramienta que se utiliza para cobrar a través de comercios afiliados. {#programas-sociales/ordenes-pago/codigo-barras}
+    *   **Código QR:** Herramienta para realizar el cobro desde ventanilla de Banco Azteca. {#programas-sociales/ordenes-pago/codigo-qr}
+    *   **Sello Estatal:** Herramienta que identifica la emisión y fecha expedida por Gobierno.
+
+**IMPORTANTE:** Se podrá cobrar la orden de pago sin importar la vigencia que se determina en el documento, siempre y cuando el sistema lo permita.
+
+### Detalles y Cobro (ODP)
+{#programas-sociales/ordenes-pago/detalles-cobro}
+Este modelo de operación se aplica en los programas de **[Beca Benito Juarez](#programas-sociales/programas-operados)** y **[Producción para el Bienestar](#programas-sociales/programas-operados)**.
+
+*   **Características**
+    *   Corresponde al modelo de Dispersión: **[Ordenes de Pago](#programas-sociales/metodos-pago)**
+    *   Límite de transacciones: **Única ocasión por carta**
+    *   Autenticación: **[NIP](#programas-sociales/ordenes-pago/requisitos-cobro)**
+
+*   **Requisitos para cobrar** {#programas-sociales/ordenes-pago/requisitos-cobro}
+    *   Presentar carta física
+    *   Conocer el NIP (Fecha de nacimiento dd/mm)
+
+*   **¿Cómo realizan el cobro de su apoyo los beneficiarios?**
+    *   Se realiza el cobro en ventanilla escaneando el [código QR](#programas-sociales/ordenes-pago/codigo-qr).
+    *   También puede realizarse por medio de las cadenas Walmart o Soriana por medio del [código de barras](#programas-sociales/ordenes-pago/codigo-barras).
+
+### Preguntas Frecuentes (ODP)
+{#programas-sociales/ordenes-pago/faq-odp}
+
+*   **P1: ¿Qué sucede si el beneficiario no conoce su [NIP](#programas-sociales/ordenes-pago/requisitos-cobro)?**
+    R1: Deberá asistir a la Coordinación de Becas para que le indiquen cuál es el NIP o si requiere hacer correcciones o actualizaciones, solicitar la corrección de la información.
+
+*   **P2: ¿Qué sucede si la [ODP](#programas-sociales/ordenes-pago) se encuentra bloqueada?**
+    R2: Debe esperar 24 horas para que sea desbloqueada.
+    **IMPORTANTE:** En caso de no realizarse el desbloqueo, escalar el tema con el supervisor.
+
+*   **P3: ¿Qué sucede si tacharon la orden de pago en sucursal?**
+    R3: Deberá acudir a una tienda de las cadenas Walmart o Soriana para realizar su cobro de su apoyo.
+
+*   **P4: ¿Qué sucede si el beneficiario acude con órdenes de pago a diferentes nombres?**
+    R4: No podrán pagarse.
+
+## App Bienestar Azteca
+{#programas-sociales/app-bienestar}
+
+### Descripción
+{#programas-sociales/app-bienestar/descripcion}
+*   **¿Cómo es la App Bienestar Azteca?**
+    Este modelo de operación es utilizado solo para programa de **“[Beca Benito Juarez](#programas-sociales/programas-operados)"**.
+
+*   **Características**
+    *   Corresponde al modelo: **[App Bienestar Azteca](#programas-sociales/metodos-pago)**.
+    *   Límite de transacciones: **Monto disponible en su cuenta**.
+    *   Autenticación: **Usuario, contraseña + Clave de seguridad**.
+
+*   **Requisitos para cobrar**
+    *   Presentar [QR](#programas-sociales/app-bienestar/operaciones-monetarias/retiro-qr-barras) generado desde la aplicación.
+
+*   **¿Cómo pueden realizar el cobro de su apoyo?**
+    *   **-En ventanilla:** con un [código QR](#programas-sociales/app-bienestar/operaciones-monetarias/retiro-qr-barras) generado a través de la APP.
+    *   **-En ATM:** como [retiro sin tarjeta](#programas-sociales/app-bienestar/operaciones-monetarias/retiro-atm), leyendo el QR del ATM.
+    *   **-En comercios:** a través de una compra con [cash back](#programas-sociales/app-bienestar/operaciones-monetarias/retiro-qr-barras) o con [código de barras](#programas-sociales/app-bienestar/operaciones-monetarias/retiro-qr-barras) generado dentro de la APP\*.
+
+*\*Aplica para cadenas Chedraui, en Walmart es se realiza mediante Cash back*
+
+### Identificación de la App
+{#programas-sociales/app-bienestar/identificacion-app}
+*   ¿Cómo identifico la App Bienestar Azteca?
+    *   Inicia sesión con tu usuario y contraseña en la App de Bienestar Azteca
+    *   Podras ver tu cuenta con el saldo, en la pantalla principal de la aplicación
+*   Identifica los siguientes elementos en la pantalla principal
+    *   **Información y Promociones:** Banner en la parte inferior de la pantalla
+    *   **Ver más operaciones:** Parte superior de la pantalla
+    *   **Saldo:** Muestra el saldo disponible.
+    *   **Ajustes:** Permite actualizar datos de acceso a la aplicación.
+
+### Funcionalidades Principales
+{#programas-sociales/app-bienestar/funcionalidades}
+*   ¿Qué puedo hacer en la App?
+    Se pueden realizar 2 tipos de operaciones a través de la App:
+*   **Monetarias:** Operaciones que tienen impacto económico.
+    *   [Retiros](#programas-sociales/app-bienestar/operaciones-monetarias/retiro)
+    *   Traspaso
+    *   [Envío de dinero](#programas-sociales/app-bienestar/operaciones-monetarias/envio-dinero)
+    *   [Cash back](#programas-sociales/app-bienestar/operaciones-monetarias/retiro-qr-barras)
+    *   [Compras](#programas-sociales/app-bienestar/operaciones-monetarias/compras)
+*   **No Monetarias:** Operaciones que NO tienen impacto económico.
+    *   [Cambio de dispositivo](#programas-sociales/app-bienestar/operaciones-no-monetarias/cambio-dispositivo)
+    *   [Recuperación de contraseña](#programas-sociales/app-bienestar/operaciones-no-monetarias/recuperacion-clave)
+    *   [Levantar aclaración](#programas-sociales/app-bienestar/operaciones-no-monetarias/levantamiento-aclaracion)
+    *   [Clave de seguridad](#programas-sociales/app-bienestar/operaciones-no-monetarias/recuperacion-clave)
+
+### Operaciones Monetarias
+{#programas-sociales/app-bienestar/operaciones-monetarias}
+
+*   **Retiro** {#programas-sociales/app-bienestar/operaciones-monetarias/retiro}
+    *   **¿En dónde puedo retirar mi apoyo?**
+        *   Podrás retirar tu apoyo en cualquier sucursal de Banco Azteca o a través de la red autorizada Wal-Mart, Bodega Aurrera o Chedraui.
+        *   Horario de servicio: de 7 a 23 hrs todos los días. \*Considerar posibles cambios de horario para comercios en tú localidad.
+        *   Podrás retirar tu apoyo en Cajeros ATM de cualquier sucursal de Banco Azteca.
+
+    *   **Proceso con QR o Código de Barras** {#programas-sociales/app-bienestar/operaciones-monetarias/retiro-qr-barras}
+        *   Para el retiro en Banco Azteca deberás generar un [código QR](#programas-sociales/ordenes-pago/codigo-qr), mientras que para un retiro en red extendida, deberás generar un [código de barras](#programas-sociales/ordenes-pago/codigo-barras).
+        *   1. Ingresa a la app de Bienestar Azteca y luego en "Retirar dinero".
+        *   2. Ingresa a "Tienda o ventanilla".
+        *   3. Ingresa la cantidad a retirar y tu clave de seguridad de Bienestar Azteca.
+        *   4. Escanea QR o genera código de barras. Realiza una compra y retira efectivo al pagar con QR en Tiendas Neto y cadena Walmart, o presenta tu código de barras en Chedraui.\*
+        *   5. Recibe tu dinero. Para recibir tu dinero solicita en caja un retiro de saldo Bienestar Azteca, muestra tu código e ingresa tu [NIP](#programas-sociales/ordenes-pago/requisitos-cobro).
+        *   *\*Los códigos de barras tiene una vigencia de 48 horas, y los códigos QR tienen una vigencia de 60 segundos.*
+
+    *   **Proceso ATM** {#programas-sociales/app-bienestar/operaciones-monetarias/retiro-atm}
+        *   Podrás retirar tu apoyo en Cajeros ATM de cualquier sucursal de Banco Azteca.
+        *   1. Inicia sesión en Bienestar Azteca e ingresa a "Retirar dinero".
+        *   2. Selecciona la opción "Cajero ATM" y acepta los permisos de la cámara.
+        *   3. En el cajero automático selecciona "Retiro con QR" para que te muestre un [código QR](#programas-sociales/ordenes-pago/codigo-qr).
+        *   4. Desde tu celular escanea el código QR con la App que aparece en el cajero ATM.
+        *   5. Digita la clave de seguridad en la App.
+        *   6. Elige el monto a retirar en la App.
+        *   7. ¡Listo! El Cajero ATM te entregará la cantidad solicitada.
+
+*   **Envío de dinero** {#programas-sociales/app-bienestar/operaciones-monetarias/envio-dinero}
+    *   **Enviar dinero a una cuenta**
+        Podrás enviar dinero a cualquier cuenta de Banco Azteca.
+    *   **Proceso** {#programas-sociales/app-bienestar/operaciones-monetarias/envio-proceso}
+        *   1. Inicia sesión en Bienestar Azteca e ingresa a "Enviar y recibir".
+        *   2. Selecciona la opción "A una cuenta".
+        *   3. Selecciona la cuenta a la que enviarás dinero desde tu agenda, si no lo tienes agregado en tu lista de contactos también lo puedes agregar desde "Nueva cuenta o celular".
+        *   4. Elige el monto a enviar.
+        *   5. Confirma los datos de la operación.
+        *   6. Digita tu clave de seguridad.
+        *   7. ¡Listo!
+
+*   **Compras** {#programas-sociales/app-bienestar/operaciones-monetarias/compras}
+    *   **Compra de Tiempo Aire** {#programas-sociales/app-bienestar/operaciones-monetarias/compra-tiempo-aire}
+        *   **¿Cómo comprar tiempo aire?**
+            *   1. Ingresa a Bienestar Azteca y luego a la opción "Tiempo aire".
+            *   2. Ingresa el número celular. Ingresa los 10 dígitos del número al que quieres hacer la recarga. Podrás escoger el número desde tu agenda o desde frecuentes.
+            *   3. Selecciona la compañía telefónica.
+            *   4. Selecciona el monto.
+            *   5. Confirma los datos de la operación.
+            *   6. Ingresa tu clave de seguridad de 6 dígitos.
+            *   7. ¡Listo! Ya tienes tu recarga.
+            *   *\*No se realizó la compra pero se vio afectado el saldo: En el comprobante de la compra viene un folio con el cual podrás realizar tu aclaración de esta compra directamente con la compañía telefónica.*
+
+    *   **Compras por Internet (Tarjeta Digital)** {#programas-sociales/app-bienestar/operaciones-monetarias/compras-internet}
+        *   **¿Cómo realizar compras por internet?**
+            Paga en internet de forma segura con tu Tarjeta Digital. Podrás hacer compras por internet con el saldo disponible en tu cuenta Bienestar Azteca.
+        *   **Proceso para ver Tarjeta Digital en App** {#programas-sociales/app-bienestar/operaciones-monetarias/ver-tarjeta-digital}
+            *   1. Ingresar a Bienestar Azteca.
+            *   2. Da clic en tu cuenta Bienestar Azteca desde el menú principal.
+            *   3. Selecciona la opción "tarjeta digital".
+            *   4. Ingresa tu clave de seguridad.
+            *   5. Visualiza. Podrás ver el CVV dinámico en la pantalla.
+            *   6. ¡Listo! Realiza tus compras por internet ingresando los datos de tu tarjeta.
+
+        *   **Proceso de Compra por Internet** {#programas-sociales/app-bienestar/operaciones-monetarias/proceso-compra-internet}
+            *   1. Ingresa al sitio donde quieres hacer la compra.
+            *   2. Paga. Al realizar el pago te solicitará tu número de tarjeta.
+            *   3. Ingresa el nombre y número de tarjeta como aparece en tu App.
+            *   4. Visualiza CVV. Ingresa tu clave de seguridad para generar CVV dinámico.
+            *   5. Ingresa la fecha de vencimiento y CVV dinámico.
+            *   6. ¡Listo! Ya compraste por internet de forma segura.
+
+### Operaciones No Monetarias
+{#programas-sociales/app-bienestar/operaciones-no-monetarias}
+
+*   **Recuperación de Clave de Seguridad** {#programas-sociales/app-bienestar/operaciones-no-monetarias/recuperacion-clave}
+    *   Deberás realizar el siguiente proceso a través de la App:
+        *   1. Selecciona la opción **“Olvidé mi Clave de Seguridad"**.
+        *   2. Registra tu fecha de nacimiento.
+        *   3. Responde 2 preguntas de seguridad.
+        *   4. Ingresa el código de verificación de 7 números.
+        *   5. Genera una nueva clave de seguridad.
+
+*   **Levantamiento de aclaración** {#programas-sociales/app-bienestar/operaciones-no-monetarias/levantamiento-aclaracion}
+    *   Deberás realizar el siguiente proceso a través de la App:
+        *   1. Selecciona la cuenta de la cual se realizó el movimiento.
+        *   2. Elige la operación que se desea aclarar.
+        *   3. Ingresa el motivo y describe de forma breve la aclaración.
+        *   4. Ingresa el correo electrónico y los datos que sean correctos.
+        *   5. ¡Listo!, se mostrará el número de folio de aclaración y la fecha estimada de respuesta.
+        *   **IMPORTANTE:** El seguimiento de estas aclaraciones se realizarán en el correo electrónico registrado.
+
+*   **Cambio de dispositivo** {#programas-sociales/app-bienestar/operaciones-no-monetarias/cambio-dispositivo}
+    *   Deberás realizar el siguiente proceso a través de la App:
+        *   1. Ingresa a la App en tu nuevo equipo, con tu usuario y contraseña.
+        *   2. Registra el código de verificación de 4 dígitos que se envió al número registrado o correo electrónico.
+        *   3. Dirígete a tu bandeja de entrada y ubica al correo que te envió la App y autenticate seleccionando la leyenda “Si soy yo”.
+        *   4. Crea nuevamente tu token de 6 dígitos con el que autorizarás tus operaciones.
+        *   5. Listo.
+        *   **IMPORTANTE:** Si el beneficiario no tiene control de su aplicación deberás comentarle que por seguridad puedes realizar un bloqueo preventivo. Posterior, deberá acudir a la coordinación de becas para actualizar sus datos.
+
+*   **Otras operaciones** {#programas-sociales/app-bienestar/operaciones-no-monetarias/otras-operaciones}
+    *   Conoce otras operaciones que se pueden realizar desde la App, para conocer el proceso a seguir en cada guía operativa:
+        *   Liberar mi beca.
+        *   Actualizar número de teléfono o correo.
+        *   Consulta de saldo o movimientos.
+        *   Pago con QR.
+
+### Preguntas Frecuentes (App Bienestar Azteca)
+{#programas-sociales/app-bienestar/faq-app}
+
+*   **P1: ¿Cómo apoyarlos si no recuerdan su contraseña?**
+    R1: Con el proceso de [recuperación de contraseña](#programas-sociales/app-bienestar/operaciones-no-monetarias/recuperacion-clave).
+
+*   **P2: ¿Cuáles son las dos formas de recuperar la contraseña?**
+    R2: Desde afuera de la App o ingresando a la App (Ver proceso en [Recuperación de Clave de Seguridad](#programas-sociales/app-bienestar/operaciones-no-monetarias/recuperacion-clave)).
+
+*   **P3: ¿Cómo apoyarlos si tienen cargos No Reconocidos?**
+    R3: Deberás guiarlos para que levanten su aclaración por medio de la aplicación (ver [Levantamiento de aclaración](#programas-sociales/app-bienestar/operaciones-no-monetarias/levantamiento-aclaracion)).
+
+*   **P4: ¿En dónde más puede realizar el cobro de su apoyo?**
+    R4: Deberás comentarle que puede realizar su [retiro](#programas-sociales/app-bienestar/operaciones-monetarias/retiro) en cajero automático, Walmart por medio de Cash back o en Soriana.
+
+## Tarjeta Para el Bienestar
+{#programas-sociales/tarjeta-bienestar}
+
+### Identificación de la Tarjeta
+{#programas-sociales/tarjeta-bienestar/identificacion-tarjeta}
+*   ¿Cómo identificar una tarjeta?
+    *   Al Frente
+        *   **CHIP:** Tecnología de seguridad.
+        *   **(Número de Tarjeta):** Se conforman por tener 16 dígitos.
+        *   **Fecha de Vencimiento:** VÁLIDO HASTA MM/AA.
+        *   **(Logo) VISA / MASTERCAD:** es uno de los dos proveedores (procesador de pago) del respaldo electrónico Internacional.
+    *   En el Anverso
+        *   **Panel de Firma autorizada: Autógrafa del Cliente**
+        *   **Código de Verificación (CVV):** Se deberán tomar siempre los 3 últimos dígitos de la serie.
+
+### Identificación Tarjeta Bienestar (Banco Azteca)
+{#programas-sociales/tarjeta-bienestar/identificacion-banco-azteca}
+*   ¿Cómo identificar la tarjeta Bienestar ligada a una cuenta de Banco Azteca?
+    *   **Imágenes de los Héroes de la Nación (en el frente de la tarjeta)**
+    *   **Logo de Banco Azteca** en la parte posterior de la tarjeta.
+
+### Detalles y Cobro (Tarjeta)
+{#programas-sociales/tarjeta-bienestar/detalles-cobro-tarjeta}
+*   **Características:**
+    *   Corresponde al modelo: [Tarjeta](#programas-sociales/metodos-pago).
+    *   Límite de transacciones: retiro hasta $10,000 MXN diarios [No se especifica si incluye IVA].
+    *   Autenticación: [NIP](#programas-sociales/tarjeta-bienestar/faq-tarjeta).
+
+*   **¿Qué programas Sociales operan como modelo de cobro?**
+    Este modelo de operación aplica para los programas:
+    *   [Adultos mayores](#programas-sociales/programas-operados).
+    *   [Niñas y niños hijos de madres solteras](#programas-sociales/programas-operados).
+    *   [Personas con discapacidad](#programas-sociales/programas-operados).
+    *   [La escuela es Nuestra](#programas-sociales/programas-operados) (via carta upgrade a N4).
+
+*   **¿Cómo realizan el cobro de su apoyo los beneficiarios?**
+    Desde ventanilla o por medio del cajero automático y **no tiene cobro de comisión**. [No se especifica si aplica IVA a esta exención].
+
+### Preguntas Frecuentes (Tarjeta Bienestar)
+{#programas-sociales/tarjeta-bienestar/faq-tarjeta}
+
+*   **P1: ¿Qué debo hacer si el beneficiario pierde su tarjeta?**
+    R1: Realizar el proceso de cancelación y canalizar a la Secretaría del Bienestar para realizar su reposición.
+
+*   **P2: ¿Cómo puedo apoyar a un beneficiario que olvidó o perdió su clave [NIP](#programas-sociales/tarjeta-bienestar/faq-tarjeta)?**
+    R2: Confirmar en sistema que la tarjeta esta "vigente" y de ser así mencionarle a el beneficiario que deberá acudir a sucursal con un Asesor financiero para solicitar la reposición de NIP.
+
+## Servicios Adicionales Recientes
+{#programas-sociales/servicios-recientes}
+*   **Retiro en ventanilla con tarjeta de Banco Bienestar**
+    A partir del 1 de marzo, los beneficiarios con [Tarjeta de Banco del Bienestar](#programas-sociales/tarjeta-bienestar) podrán retirar su apoyo desde nuestras ventanillas y también lo podrán seguir haciendo en nuestros cajeros automáticos.
+
+*   **Crédito desde ventanilla**
+    A partir de ahora, los beneficiarios de Programas Sociales y Remesas podrán realizar la Recompra de crédito desde ventanilla.
