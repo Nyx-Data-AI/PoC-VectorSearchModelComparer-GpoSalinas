@@ -46,8 +46,14 @@ Esta aplicación permite:
 )
 
 DEFAULT_MODELS = [
+    "anthropic.claude-v2",
+    "us.amazon.nova-micro-v1:0",
+    "us.amazon.nova-lite-v1:0",
+    "us.amazon.nova-pro-v1:0",
     "us.anthropic.claude-3-haiku-20240307-v1:0",
     "us.anthropic.claude-3-5-haiku-20241022-v1:0",
+    "us.anthropic.claude-3-5-sonnet-20241022-v2:0",
+    "us.anthropic.claude-3-7-sonnet-20250219-v1:0",
 ]
 
 with st.sidebar:
@@ -139,7 +145,7 @@ async def invoke_bedrock_agent(agent_id, agent_alias_id, query):
         )
 
         full_response = ""
-        output_tokens = 0  
+        output_tokens = 0
 
         for event in response["completion"]:
             if "chunk" in event:
@@ -340,7 +346,7 @@ def init_bedrock_client():
 
 
 def load_and_split_txts(txt_paths, chunk_size=500, chunk_overlap=100):
-    from langchain.document_loaders import TextLoader
+    from langchain_community.document_loaders import TextLoader
     from langchain.text_splitter import RecursiveCharacterTextSplitter
 
     all_docs = []
@@ -366,8 +372,8 @@ def load_and_split_txts(txt_paths, chunk_size=500, chunk_overlap=100):
 
 
 def setup_embeddings_and_vectorstore(documents):
-    from langchain.vectorstores import FAISS
-    from langchain.embeddings import BedrockEmbeddings
+    from langchain_community.vectorstores import FAISS
+    from langchain_aws import BedrockEmbeddings
 
     try:
         with st.spinner("Configurando modelo de embeddings..."):
