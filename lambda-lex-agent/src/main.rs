@@ -69,7 +69,7 @@ async fn handle_fallback(event: &Value) -> Result<Value, Error> {
 
 async fn query_agent(question: &str, session_id: &str) -> Result<String, Error> {
     eprintln!("📡 Starting query_agent with question: '{}'", question);
-    let region_str = env::var("BEDROCK_REGION").unwrap_or_else(|_| "us-east-2".to_string());
+    let region_str = env::var("BEDROCK_REGION").map_err(|_| "BEDROCK_REGION must be set")?;;
     eprintln!("🌎 Region: {}", region_str);
 
     let region = Region::new(region_str);
@@ -86,8 +86,8 @@ async fn query_agent(question: &str, session_id: &str) -> Result<String, Error> 
         e
     })?;
 
-    eprintln!("🔍 AGENT_ID(env): {:?}", std::env::var("AGENT_ID"));
-    eprintln!("🔍 AGENT_ALIAS_ID(env): {:?}", std::env::var("AGENT_ALIAS_ID"));
+    // eprintln!("🔍 AGENT_ID(env): {:?}", std::env::var("AGENT_ID"));
+    // eprintln!("🔍 AGENT_ALIAS_ID(env): {:?}", std::env::var("AGENT_ALIAS_ID"));
 
     eprintln!("🪪 Agent ID: {}, Alias ID: {}", agent_id, agent_alias_id);
 
