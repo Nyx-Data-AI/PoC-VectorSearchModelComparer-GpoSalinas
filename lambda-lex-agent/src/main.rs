@@ -108,7 +108,7 @@ async fn query_agent(question: &str, session_id: &str) -> Result<String, Error> 
         },
         Err(e) => {
             eprintln!("❌ Error invoking Bedrock Agent: {:?}", e);
-            return Ok("Sorry, there was an error contacting the agent.".to_string());
+            return Ok(format!("Sorry, there was an error contacting the agent: {:?}", e).to_string());
         }
     };
 
