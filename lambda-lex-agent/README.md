@@ -62,19 +62,19 @@ TABLE OF CONTENTS
    - Cargo.toml                – Rust crate metadata & dependencies
    - samconfig.toml            – Default SAM deploy parameters
 3. HOW IT WORKS
-   • Lex triggers the Lambda when the bot enters FallbackIntent.
-   • Lambda extracts:
-
-   - inputTranscript  (raw user utterance)
-   - sessionAttributes.CustomerId  (phone #, used as Bedrock session key)
-     • Lambda calls InvokeAgent on Bedrock Agent Runtime SDK:
-   - agent_id & agent_alias_id from env vars
-   - session_id = sanitized CustomerId (keeps chat history)
-     • SDK streams ResponseStream::Chunk events; Lambda concatenates chunks.
-     • Lambda returns a Lex‑compatible JSON:
-   - dialogAction.type = Close
-   - messages[0].content = LLM answer
-     • No state is stored in Lambda; conversation history lives in Bedrock.
+   - Lex triggers the Lambda when the bot enters FallbackIntent.
+   - Lambda extracts:
+      - inputTranscript  (raw user utterance)
+      - sessionAttributes.CustomerId  (phone #, used as Bedrock session key)
+         - Lambda calls InvokeAgent on Bedrock Agent Runtime SDK:
+      - agent_id & agent_alias_id from env vars
+      - session_id = sanitized CustomerId (keeps chat history)
+         - SDK streams ResponseStream::Chunk events; Lambda concatenates chunks.
+         - Lambda returns a Lex‑compatible JSON:
+      - dialogAction.type = Close
+      - messages[0].content = LLM answer
+         - No state is stored in Lambda; conversation history lives in Bedrock.
+         
 4. PREREQUISITES
    - Rust 1.74 (stable)            – compile binary
    - cargo‑lambda 1.2              – cross‑compile for aarch64‑unknown-linux-musl
