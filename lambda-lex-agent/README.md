@@ -133,21 +133,15 @@ TABLE OF CONTENTS
 Built with love for serverless conversational‑AI experiments.
 
 
+```mermaid
 flowchart TD
-    %% ========= NODES =========
-    A(User&nbsp;voice) -->|audio| B[Amazon&nbsp;Connect`<br>`Contact&nbsp;Flow]
-    B --> C[Amazon&nbsp;Lex&nbsp;V2]
+    A["User voice"] -->|audio| B["Amazon Connect\nContact Flow"]
+    B --> C["Amazon Lex V2"]
 
-    C -- "NLU&nbsp;hit" --> H[Lex&nbsp;response]
+    C -- "NLU hit" --> H["Lex response"]
 
-    C -- "FallbackIntent" --> D[Lambda`<br/>`(Rust&nbsp;handler)]
-    D --> E[Amazon&nbsp;Bedrock`<br/>`Agent&nbsp;Runtime]
-    E -- "LLM&nbsp;response" --> F((Response))
+    C -- "FallbackIntent" --> D["Lambda\n(Rust handler)"]
+    D --> E["Amazon Bedrock\nAgent Runtime"]
+    E -- "LLM response" --> F["Response"]
     F --> C
-
-    %% ========= STYLES =========
-    classDef service fill:#f9f,stroke:#333,stroke-width:1px,color:#000,rx:6,ry:6;
-    classDef terminator fill:#fff,stroke:#333,stroke-width:1px,color:#000,rx:50,ry:50;
-
-    class B,C,D,E service;
-    class H,F terminator;
+```
