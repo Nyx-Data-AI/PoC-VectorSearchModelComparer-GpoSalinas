@@ -1,0 +1,9 @@
+version = 0.1
+
+[default.deploy]
+region = "us-east-1"
+stack_name = "LambdaSalinasLexAgent"
+s3_bucket = "example-s3-bucket-name"
+capabilities = "CAPABILITY_IAM"
+parameter_overrides = "AgentIdParam=FAKE_AGENT AgentAliasIdParam=FAKE_ALIAS BedrockRegionParam=us-east-1"
+confirm_changeset = true

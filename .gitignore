@@ -177,3 +177,7 @@ cython_debug/
 .DS_Store
 streamlit_app/.DS_Store
 .vscode/
+lambda-lex-agent/samconfig-private.toml
+lambda-lex-agent/env.private.json
+lambda-lex-agent/events/Makefile
+lambda-lex-agent/.aws-sam/

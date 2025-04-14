@@ -1,0 +1,77 @@
+{
+  "timestamp": "",
+  "requestId": "",
+  "messages": [
+    {
+      "contentType": "PlainText",
+      "content": ""
+    }
+  ],
+  "messageVersion": "2.0",
+  "dialogEventLogs": [
+    {
+      "nextStep": {
+        "dialogAction": {
+          "type": "InvokeDialogCodeHook"
+        }
+      },
+      "dialogStepLabel": "Intent/FallbackIntent/StartIntent"
+    }
+  ],
+  "sessionId": "",
+  "requestAttributes": {
+    "x-amz-lex:accept-content-types": "PlainText,SSML",
+    "x-amz-lex:channels:platform": "Connect"
+  },
+  "isTestWorkbenchTraffic": false,
+  "inputMode": "Speech",
+  "bargeIn": "false",
+  "operationName": "StartConversation",
+  "interpretations": [
+    {
+      "intent": {
+        "name": "FallbackIntent",
+        "state": "Fulfilled",
+        "slots": {},
+        "confirmationState": "None"
+      },
+      "interpretationSource": "Lex"
+    },
+    {
+      "intent": {
+        "name": "NewIntent",
+        "slots": {}
+      },
+      "interpretationSource": "Lex",
+      "nluConfidence": "0.46"
+    }
+  ],
+  "developerOverride": false,
+  "bot": {
+    "name": "CloneUS",
+    "version": "1",
+    "id": "",
+    "aliasName": "",
+    "aliasId": "",
+    "localeId": "es_419"
+  },
+  "sessionState": {
+    "sessionAttributes": {
+      "available_intents": "FallbackIntent",
+      "CustomerId": "+525555555555"
+    },
+    "dialogAction": {
+      "type": "Close"
+    },
+    "intent": {
+      "name": "FallbackIntent",
+      "state": "Fulfilled",
+      "slots": {},
+      "confirmationState": "None"
+    },
+    "originatingRequestId": ""
+  },
+  "inputTranscript": "hola",
+  "missedUtterance": true,
+  "utteranceContext": {}
+}
