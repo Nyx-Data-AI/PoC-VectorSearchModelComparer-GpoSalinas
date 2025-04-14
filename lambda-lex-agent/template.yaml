@@ -1,0 +1,47 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: SAM template for a Rust-based AWS Lambda to invoke a Bedrock agent
+
+Parameters:
+  AgentIdParam:
+    Type: String
+    Description: Bedrock Agent ID
+
+  AgentAliasIdParam:
+    Type: String
+    Description: Bedrock Agent Alias ID
+
+  BedrockRegionParam:
+    Type: String
+    Description: Bedrock region (e.g., us-east-2)
+
+Resources:
+  LambdaSalinasLexAgent:
+    Type: AWS::Serverless::Function
+    Metadata:
+      BuildMethod: rust-cargolambda
+    Properties:
+      FunctionName: LambdaSalinasLexAgent 
+      CodeUri: .
+      Handler: bootstrap
+      Runtime: provided.al2
+      Timeout: 120
+      Architectures:
+        - arm64
+      Environment:
+        Variables:
+          AGENT_ID: !Ref AgentIdParam
+          AGENT_ALIAS_ID: !Ref AgentAliasIdParam
+          BEDROCK_REGION: !Ref BedrockRegionParam
+      Policies:
+        - Version: "2012-10-17"
+          Statement:
+            - Effect: Allow
+              Action:
+                - bedrock:InvokeAgent
+              Resource: !Sub arn:aws:bedrock:${BedrockRegionParam}:${AWS::AccountId}:agent-alias/${AgentIdParam}/${AgentAliasIdParam}
+
+Outputs:
+  LambdaSalinasLexAgentFunction:
+    Description: ARN of the Lambda function handling Lex queries with Bedrock
+    Value: !GetAtt LambdaSalinasLexAgent.Arn
