@@ -54,13 +54,13 @@ TABLE OF CONTENTS
                        └─────────────────────────────┘
    ```
 2. REPOSITORY LAYOUT
-   src/main.rs               – Lambda handler in Rust (Tokio async, Bedrock SDK)
-   template.yaml             – AWS SAM template (build + IAM + Lambda)
-   Makefile                  – Convenience targets (build, deploy, invoke, logs)
-   events/test-event.json    – Canonical Lex V2 fallback payload for local tests
-   env.json                  – Local overrides for AGENT_ID / ALIAS / REGION
-   Cargo.toml                – Rust crate metadata & dependencies
-   samconfig.toml            – Default SAM deploy parameters
+   - src/main.rs               – Lambda handler in Rust (Tokio async, Bedrock SDK)
+   - template.yaml             – AWS SAM template (build + IAM + Lambda)
+   - Makefile                  – Convenience targets (build, deploy, invoke, logs)
+   - events/test-event.json    – Canonical Lex V2 fallback payload for local tests
+   - env.json                  – Local overrides for AGENT_ID / ALIAS / REGION
+   - Cargo.toml                – Rust crate metadata & dependencies
+   - samconfig.toml            – Default SAM deploy parameters
 3. HOW IT WORKS
    • Lex triggers the Lambda when the bot enters FallbackIntent.
    • Lambda extracts:
@@ -76,12 +76,12 @@ TABLE OF CONTENTS
    - messages[0].content = LLM answer
      • No state is stored in Lambda; conversation history lives in Bedrock.
 4. PREREQUISITES
-   Rust 1.74 (stable)            – compile binary
-   cargo‑lambda 1.2              – cross‑compile for aarch64‑unknown-linux-musl
-   AWS SAM CLI 1.114             – build, deploy, local invoke
-   Docker 20.10+                 – SAM build container
-   AWS CLI 2.15+                 – log tailing & manual invokes
-   IAM credentials               – bedrock:InvokeAgent, lambda:*, cloudformation:*
+   - Rust 1.74 (stable)            – compile binary
+   - cargo‑lambda 1.2              – cross‑compile for aarch64‑unknown-linux-musl
+   - AWS SAM CLI 1.114             – build, deploy, local invoke
+   - Docker 20.10+                 – SAM build container
+   - AWS CLI 2.15+                 – log tailing & manual invokes
+   - IAM credentials               – bedrock:InvokeAgent, lambda:*, cloudformation:*
 5. BUILD & DEPLOY
 
 # One‑liner
@@ -90,45 +90,45 @@ TABLE OF CONTENTS
 
 # Step‑by‑step
 
-  make build            # sam build --beta-features
-  make config-deploy    # sam deploy with parameter overrides
-  make online-invoke    # invoke the deployed Lambda with test payload
+  - make build            # sam build --beta-features
+  - make config-deploy    # sam deploy with parameter overrides
+  - make online-invoke    # invoke the deployed Lambda with test payload
 
   Tip: On macOS “too many open files” → use `make highlimit-run`.
 
 6. LOCAL INVOCATION
-   make local-invoke     # run with events/test-event.json
-   make logs             # tail CloudWatch logs
+   - make local-invoke     # run with events/test-event.json
+   - make logs             # tail CloudWatch logs
 
   SAM spins up Lambda RIE in Docker; env vars injected from env.json.
 
 7. RUNTIME ENVIRONMENT VARIABLES
-   AGENT_ID         – Bedrock Agent ID        (e.g. abc123def)
-   AGENT_ALIAS_ID   – Bedrock Agent Alias     (e.g. TSTALIAS)
-   BEDROCK_REGION   – Service region          (e.g. us-east-1)
+   - AGENT_ID         – Bedrock Agent ID        (e.g. abc123def)
+   - AGENT_ALIAS_ID   – Bedrock Agent Alias     (e.g. TSTALIAS)
+   - BEDROCK_REGION   – Service region          (e.g. us-east-1)
 
   Set in three places (override order):
-    1) CloudFormation/Lambda (template.yaml)
-    2) env.json for sam local invoke
-    3) Shell exports (see make print-env)
+ - CloudFormation/Lambda (template.yaml)
+ - env.json for sam local invoke
+ - Shell exports (see make print-env)
 
 8. OBSERVABILITY
-   🚀  Lambda is starting up
-   📥  Received event: ...
-   🎯  Detected intent: ...
-   ✅  Bedrock Agent successfully invoked.
-   📦  Received chunk: ...
-   ✅  End of response / ⚠️ Empty response
+   - 🚀  Lambda is starting up
+   - 📥  Received event: ...
+   - 🎯  Detected intent: ...
+   - ✅  Bedrock Agent successfully invoked.
+   - 📦  Received chunk: ...
+   - ✅  End of response / ⚠️ Empty response
 
   Logging via `tracing` + `tracing-subscriber`. JSON logs supported.
 
 9. COMMON ISSUES
-   • “AGENT_ID must be set”            → env var missing → update stack & redeploy
-   • 403 AccessDeniedException         → IAM role lacks bedrock:InvokeAgent
-   • Empty response string             → Agent returned no chunks; enable trace
-   • Speech input but no Lex response  → Contact flow barge‑in; verify Connect
+   - “AGENT_ID must be set”            → env var missing → update stack & redeploy
+   - 403 AccessDeniedException         → IAM role lacks bedrock:InvokeAgent
+   - Empty response string             → Agent returned no chunks; enable trace
+   - Speech input but no Lex response  → Contact flow barge‑in; verify Connect
 10. CLEANING UP
-    sam delete --stack-name LambdaSalinasLexAgent --region us-east-1
+    `sam delete --stack-name LambdaSalinasLexAgent --region us-east-1`
 
 Built with love for serverless conversational‑AI experiments.
 
