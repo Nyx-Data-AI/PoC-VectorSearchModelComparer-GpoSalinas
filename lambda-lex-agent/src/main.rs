@@ -69,7 +69,7 @@ async fn handle_fallback(event: &Value) -> Result<Value, Error> {
 
 async fn query_agent(question: &str, session_id: &str) -> Result<String, Error> {
     eprintln!("📡 Starting query_agent with question: '{}'", question);
-    let region_str = env::var("BEDROCK_REGION").map_err(|_| "BEDROCK_REGION must be set")?;;
+    let region_str = env::var("BEDROCK_REGION").map_err(|_| "BEDROCK_REGION must be set")?;
     eprintln!("🌎 Region: {}", region_str);
 
     let region = Region::new(region_str);
