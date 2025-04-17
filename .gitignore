@@ -181,3 +181,5 @@ lambda-lex-agent/samconfig-private.toml
 lambda-lex-agent/env.private.json
 lambda-lex-agent/events/Makefile
 lambda-lex-agent/.aws-sam/
+lambda-lex-agent/env.json
+lambda-lex-agent/events/test-event.json
