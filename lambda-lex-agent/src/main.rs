@@ -42,6 +42,33 @@ async fn handle_fallback(event: &Value) -> Result<Value, Error> {
     let session_state = &event["sessionState"];
     let default_attrs = serde_json::Map::new();
     let session_attributes = session_state["sessionAttributes"].as_object().unwrap_or(&default_attrs);
+    
+    // Check if input is empty
+    if input_transcript.trim().is_empty() {
+        eprintln!("⚠️ Empty input transcript detected, returning null content response");
+        return Ok(json!({
+            "sessionState": {
+                "dialogAction": {
+                    "type": "Close"
+                },
+                "intent": {
+                    "name": "FallbackIntent",
+                    "slots": {},
+                    "state": "Fulfilled"
+                },
+                "sessionAttributes": {
+                    "available_intents": "FallbackIntent",
+                    "CustomerId": session_attributes.get("CustomerId").and_then(|v| v.as_str()).unwrap_or("+525555555555")
+                }
+            },
+            "messages": [
+                {
+                    "contentType": "PlainText",
+                    "content": null
+                }
+            ]
+        }));
+    }
     let customer_id = session_attributes.get("CustomerId").and_then(|v| v.as_str()).unwrap_or("SESSION_ID").replace("+", "");
 
     eprintln!("🧾 customer_id: {}", customer_id);
