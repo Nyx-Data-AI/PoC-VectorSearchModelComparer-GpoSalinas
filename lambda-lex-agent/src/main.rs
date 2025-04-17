@@ -83,7 +83,9 @@ async fn handle_fallback(event: &Value) -> Result<Value, Error> {
                 "slots": session_state["intent"]["slots"].clone(),
                 "state": "Fulfilled"
             },
-            "sessionAttributes": session_attributes
+            "sessionAttributes": {
+                "CustomerId": original_customer_id
+            }
         },
         "messages": [
             {
@@ -113,9 +115,6 @@ async fn query_agent(question: &str, session_id: &str) -> Result<String, Error> 
         e
     })?;
 
-    // eprintln!("🔍 AGENT_ID(env): {:?}", std::env::var("AGENT_ID"));
-    // eprintln!("🔍 AGENT_ALIAS_ID(env): {:?}", std::env::var("AGENT_ALIAS_ID"));
-
     eprintln!("🪪 Agent ID: {}, Alias ID: {}", agent_id, agent_alias_id);
 
     let resp_result = client.invoke_agent()
@@ -123,7 +122,7 @@ async fn query_agent(question: &str, session_id: &str) -> Result<String, Error> 
         .agent_alias_id(agent_alias_id)
         .session_id(session_id)
         .input_text(question)
-        .enable_trace(true)
+        .enable_trace(false)
         .end_session(false)
         .send()
         .await;
