@@ -46,6 +46,14 @@ async fn handle_fallback(event: &Value) -> Result<Value, Error> {
         .as_object()
         .unwrap_or(&default_attrs);
 
+    let original_customer_id = session_attrs
+        .get("CustomerId")
+        .and_then(|v| v.as_str())
+        .unwrap_or("SESSION_ID") 
+        .to_string();
+
+    let customer_id = original_customer_id.replace('+', "");
+
     if input_transcript.trim().is_empty() {
         eprintln!("⚠️ Empty input transcript detected, returning null content response");
 
@@ -56,13 +64,7 @@ async fn handle_fallback(event: &Value) -> Result<Value, Error> {
         );
         ordered_session_attrs.insert(
             "CustomerId".to_string(),
-            Value::String(
-                session_attrs
-                    .get("CustomerId")
-                    .and_then(|v| v.as_str())
-                    .unwrap_or("+525555555555")
-                    .to_string(),
-            ),
+            Value::String(original_customer_id.clone()),
         );
 
         let session_state_map = json!({
@@ -83,23 +85,15 @@ async fn handle_fallback(event: &Value) -> Result<Value, Error> {
         response.insert("sessionState".to_string(), session_state_map);
         response.insert("messages".to_string(),     messages_array);
 
-        return Ok(serde_json::to_value(response)?);    }
-
-    let original_customer_id = session_attrs
-        .get("CustomerId")
-        .and_then(|v| v.as_str())
-        .unwrap_or("SESSION_ID")
-        .to_string();
-    let customer_id = original_customer_id.replace('+', "");
-
-    eprintln!("🧾 customer_id: {}", customer_id);
+        return Ok(serde_json::to_value(response)?);
+    }
 
     let result = query_agent(input_transcript, &customer_id).await?;
 
     let mut final_session_attrs = IndexMap::new();
     final_session_attrs.insert(
         "CustomerId".to_string(),
-        Value::String(original_customer_id),
+        Value::String(original_customer_id), 
     );
 
     let final_session_state_map = json!({
