@@ -39,61 +39,87 @@ async fn handle_fallback(event: &Value) -> Result<Value, Error> {
     let input_transcript = event["inputTranscript"].as_str().unwrap_or_default();
     eprintln!("💬 inputTranscript: {}", input_transcript);
 
-    let session_state = &event["sessionState"];
-    let default_attrs = serde_json::Map::new();
-    let session_attributes = session_state["sessionAttributes"].as_object().unwrap_or(&default_attrs);
-    
+    let session_state   = &event["sessionState"];
+    let default_attrs   = serde_json::Map::new();
+    let session_attrs   = session_state["sessionAttributes"]
+        .as_object()
+        .unwrap_or(&default_attrs);
+
     if input_transcript.trim().is_empty() {
         eprintln!("⚠️ Empty input transcript detected, returning null content response");
-        return Ok(json!({
-            "sessionState": {
-                "dialogAction": {
-                    "type": "Close"
-                },
-                "intent": {
-                    "name": "FallbackIntent",
-                    "slots": {},
-                    "state": "Fulfilled"
-                },
-                "sessionAttributes": {
-                    "available_intents": "FallbackIntent",
-                    "CustomerId": session_attributes.get("CustomerId").and_then(|v| v.as_str()).unwrap_or("+525555555555")
-                }
+
+        let mut ordered_session_attrs = IndexMap::new();
+        ordered_session_attrs.insert(
+            "available_intents".to_string(),
+            Value::String("FallbackIntent".to_string()),
+        );
+        ordered_session_attrs.insert(
+            "CustomerId".to_string(),
+            Value::String(
+                session_attrs
+                    .get("CustomerId")
+                    .and_then(|v| v.as_str())
+                    .unwrap_or("+525555555555")
+                    .to_string(),
+            ),
+        );
+
+        let session_state_map = json!({
+            "dialogAction": { "type": "Close" },
+            "intent": {
+                "name":  "FallbackIntent",
+                "slots": {},
+                "state": "Fulfilled"
             },
-            "messages": [
-                {
-                    "contentType": "PlainText",
-                    "content": null
-                }
-            ]
-        }));
-    }
-    let original_customer_id = session_attributes.get("CustomerId").and_then(|v| v.as_str()).unwrap_or("SESSION_ID").to_string();
-    let customer_id = original_customer_id.replace("+", "");
+            "sessionAttributes": ordered_session_attrs
+        });
+
+        let messages_array = json!([
+            { "contentType": "PlainText", "content": null }
+        ]);
+
+        let mut response = IndexMap::new();
+        response.insert("sessionState".to_string(), session_state_map);
+        response.insert("messages".to_string(),     messages_array);
+
+        return Ok(serde_json::to_value(response)?);    }
+
+    let original_customer_id = session_attrs
+        .get("CustomerId")
+        .and_then(|v| v.as_str())
+        .unwrap_or("SESSION_ID")
+        .to_string();
+    let customer_id = original_customer_id.replace('+', "");
 
     eprintln!("🧾 customer_id: {}", customer_id);
 
     let result = query_agent(input_transcript, &customer_id).await?;
 
-    Ok(json!({
-        "sessionState": {
-            "dialogAction": { "type": "Close" },
-            "intent": {
-                "name": "FallbackIntent",
-                "slots": session_state["intent"]["slots"].clone(),
-                "state": "Fulfilled"
-            },
-            "sessionAttributes": {
-                "CustomerId": original_customer_id
-            }
+    let mut final_session_attrs = IndexMap::new();
+    final_session_attrs.insert(
+        "CustomerId".to_string(),
+        Value::String(original_customer_id),
+    );
+
+    let final_session_state_map = json!({
+        "dialogAction": { "type": "Close" },
+        "intent": {
+            "name":  "FallbackIntent",
+            "slots": session_state["intent"]["slots"].clone(),
+            "state": "Fulfilled"
         },
-        "messages": [
-            {
-                "contentType": "PlainText",
-                "content": result
-            }
-        ]
-    }))
+        "sessionAttributes": final_session_attrs
+    });
+
+    let final_messages_array = json!([
+        { "contentType": "PlainText", "content": result }
+    ]);
+
+    let mut response = IndexMap::new();
+    response.insert("sessionState".to_string(), final_session_state_map);
+    response.insert("messages".to_string(),     final_messages_array);
+
+    Ok(serde_json::to_value(response)?)
 }
 
 async fn query_agent(question: &str, session_id: &str) -> Result<String, Error> {
