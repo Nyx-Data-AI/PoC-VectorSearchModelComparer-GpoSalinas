@@ -1,5 +1,6 @@
 use lambda_runtime::{run, service_fn, Error, LambdaEvent};
 use serde_json::{json, Value};
+use indexmap::IndexMap;
 use std::env;
 
 use aws_sdk_bedrockagentruntime::config::Region;
