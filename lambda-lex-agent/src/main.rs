@@ -43,7 +43,6 @@ async fn handle_fallback(event: &Value) -> Result<Value, Error> {
     let default_attrs = serde_json::Map::new();
     let session_attributes = session_state["sessionAttributes"].as_object().unwrap_or(&default_attrs);
     
-    // Check if input is empty
     if input_transcript.trim().is_empty() {
         eprintln!("⚠️ Empty input transcript detected, returning null content response");
         return Ok(json!({
@@ -69,7 +68,8 @@ async fn handle_fallback(event: &Value) -> Result<Value, Error> {
             ]
         }));
     }
-    let customer_id = session_attributes.get("CustomerId").and_then(|v| v.as_str()).unwrap_or("SESSION_ID").replace("+", "");
+    let original_customer_id = session_attributes.get("CustomerId").and_then(|v| v.as_str()).unwrap_or("SESSION_ID").to_string();
+    let customer_id = original_customer_id.replace("+", "");
 
     eprintln!("🧾 customer_id: {}", customer_id);
 
